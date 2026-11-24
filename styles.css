@@ -104,3 +104,29 @@ textarea { min-height: 110px; resize: vertical; line-height: 1.45; }
 #gen-status .pulse { color: var(--teal); margin-bottom: 0.35rem; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.72rem; }
 .hint { position: absolute; left: 1rem; bottom: 1rem; color: var(--muted); font-size: 0.78rem; letter-spacing: 0.04em; display: none; }
 .hint.show { display: block; }
+.brand-logo {
+  height: 2.25rem;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+}
+.hero-logo {
+  display: block;
+  width: min(300px, 78%);
+  height: auto;
+  margin: 0 auto 0.35rem;
+  filter: drop-shadow(0 10px 28px rgba(0,0,0,0.4));
+}
+.tagline {
+  text-align: center;
+  margin: 0 0 0.9rem;
+  color: var(--teal);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); border: 0;
+}
