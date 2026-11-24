@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320" role="img" aria-label="MemoryScape">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a4a7a"/>
+      <stop offset="50%" stop-color="#8ab0c8"/>
+      <stop offset="100%" stop-color="#e8f4dc"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff8e0"/>
+      <stop offset="100%" stop-color="#f0d090"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M160 210 V95 A100 100 0 0 1 360 95 V210" fill="none" stroke="#a8c0d8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M172 210 V98 A88 88 0 0 1 348 98 V210" fill="url(#sky)" stroke="#e8f0ff" stroke-width="2.5"/>
+  <path d="M175 175 Q220 145 260 160 Q300 145 345 175 L345 210 L175 210 Z" fill="#5a9a88" opacity="0.9"/>
+  <path d="M175 190 Q230 165 260 178 Q300 165 345 190 L345 210 L175 210 Z" fill="#3d7a6c"/>
+  <path d="M260 210 C250 185 245 165 260 145 C275 128 268 115 260 105" fill="none" stroke="url(#path)" stroke-width="11" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M190 200 C188 185 182 180 186 170 M186 185 C180 182 178 175 182 168" fill="none" stroke="#6aaa7a" stroke-width="2"/>
+  <path d="M330 200 C332 185 338 180 334 170 M334 185 C340 182 342 175 338 168" fill="none" stroke="#6aaa7a" stroke-width="2"/>
+  <text x="260" y="268" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="600">
+    <tspan fill="#e8eef4">Memory</tspan><tspan fill="#6eb4b1">Scape</tspan>
+  </text>
+  <line x1="180" y1="285" x2="240" y2="285" stroke="#c9a46c" stroke-width="1.2" opacity="0.8"/>
+  <circle cx="260" cy="285" r="3" fill="#c9a46c"/>
+  <line x1="280" y1="285" x2="340" y2="285" stroke="#c9a46c" stroke-width="1.2" opacity="0.8"/>
+</svg>

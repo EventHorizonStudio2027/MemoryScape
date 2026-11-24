@@ -15,8 +15,7 @@
   <div id="ui">
     <div class="hud">
       <div class="brand">
-        <div class="arch" aria-hidden="true"></div>
-        <div class="wordmark">Memory<span>Scape</span></div>
+        <img class="brand-logo" src="logo.svg" alt="MemoryScape" width="160" height="48" />
       </div>
       <div class="row">
         <span class="chip" id="zone-chip">Atlas</span>
@@ -27,7 +26,9 @@
 
     <div class="screen" id="screen-home">
       <div class="card">
-        <h1>Build a memoryscape</h1>
+        <img class="hero-logo" src="logo.svg" alt="MemoryScape" />
+        <h1 class="sr-only">Build a memoryscape</h1>
+        <p class="tagline">Build a memoryscape</p>
         <p>Describe a memory or experience. The system designs an explorabile 3D zone from it. New zones link to the ones you already made — a continuous place made of your past.</p>
         <label for="mem-title">Name this place</label>
         <input id="mem-title" placeholder="e.g. Grandma's kitchen, 2009" maxlength="80" />
