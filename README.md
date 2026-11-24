@@ -1,30 +1,25 @@
 # MemoryScape
 
-Walk a memory palace. Seal facts to a place, then recall them under pressure.
+Describe a memory or experience. The system designs an **explorable 3D zone** from it. New zones connect to the ones you already made — a walkable map of your past.
 
 ## Play
 
-Open the live app:
+1. Open the app (GitHub Pages or local `index.html`)
+2. Name a place and describe what happened / how it felt
+3. **Design 3D zone** — walk it with WASD, look with the mouse
+4. Create another memory and **link** it — teal portals connect the zones (press **E**)
 
-**https://fatespassage.github.io/MemoryScape/**
+## Controls
 
-Or open `index.html` locally in any browser.
-
-## Features
-
-- Three built-in palaces (biology, learning science, history)
-- Build your own palace (3+ rooms) — saved in your browser
-- First-person walk with keyboard (A/D, Enter)
-- Recall scoring with streaks
-- Progress rail as you seal loci
+- **Click** — capture mouse look
+- **WASD** — move
+- **E** — enter portal
+- **Esc** — release mouse
 
 ## Stack
 
-Static single-page app. No build step. Hosts cleanly on GitHub Pages.
+Static Three.js client. No build step. Zones and links stored in `localStorage`.
 
-## Enable GitHub Pages
+## Pages
 
-1. Repo **Settings** → **Pages**
-2. Source: **Deploy from a branch**
-3. Branch: `main` / `/ (root)`
-4. Save — site appears at the URL above within a minute or two
+Repo Settings → Pages → Source: **GitHub Actions** (workflow included), or Deploy from branch `main` / root.
