@@ -8,16 +8,21 @@
   <meta name="theme-color" content="#070b12" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="MemoryScape" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@450;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" id="favicon-link" type="image/png" href="data:image/png;base64,iVBORw0KGgo=" />
+  <link rel="apple-touch-icon" id="apple-touch-link" href="#" />
+  <link rel="manifest" href="manifest.webmanifest" />
 </head>
 <body>
   <div id="ui">
     <div class="hud">
       <div class="brand">
-        <img class="brand-logo" src="logo.svg" alt="MemoryScape" width="160" height="48" />
+        <img class="brand-logo brand-logo-mark" id="logo-mark" alt="MemoryScape" width="36" height="36" />
+        <img class="brand-logo brand-logo-horiz" id="logo-horiz" alt="MemoryScape" />
       </div>
       <div class="hud-actions">
         <span class="chip" id="zone-chip">Atlas</span>
@@ -29,7 +34,7 @@
     <div class="screen" id="screen-home">
       <div class="sheet">
         <div class="sheet-handle" aria-hidden="true"></div>
-        <img class="hero-logo" src="logo.svg" alt="MemoryScape" />
+        <img class="hero-logo" id="logo-hero" alt="MemoryScape" />
         <h1 class="sr-only">Build a memoryscape</h1>
         <p class="tagline">Your memories, walkable</p>
         <p class="lede">Describe a place from your life. We shape a 3D zone you can explore — then link it to the rest of your past.</p>
@@ -57,8 +62,13 @@
     <div class="screen hidden" id="screen-atlas">
       <div class="sheet">
         <div class="sheet-handle" aria-hidden="true"></div>
-        <h2 class="section-title">Your zones</h2>
-        <p class="section-sub">Each one is a walkable place. Open any zone, or step through portals inside the world.</p>
+        <div class="atlas-header">
+          <img class="atlas-icon" id="logo-atlas" alt="" width="40" height="40" />
+          <div>
+            <h2 class="section-title">Your zones</h2>
+            <p class="section-sub">Each one is a walkable place. Open any zone, or step through portals inside the world.</p>
+          </div>
+        </div>
         <div class="memory-list" id="atlas-list"></div>
         <div class="actions row">
           <button class="btn" type="button" id="btn-atlas-new">New memory</button>
@@ -75,6 +85,7 @@
       <div class="links" id="side-links"></div>
     </div>
     <div id="gen-status">
+      <img class="gen-logo" id="logo-gen" alt="" />
       <div class="pulse">Designing zone</div>
       <div id="gen-text">Reading the memory…</div>
     </div>
@@ -88,6 +99,30 @@
       "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
     }
   }
+  </script>
+  <script type="module">
+    import { LOGO_CLASSIC } from "./logo-classic.js";
+    import { LOGO_HORIZONTAL } from "./logo-horizontal.js";
+    import { LOGO_ILLUSTRATION } from "./logo-illustration.js";
+    import { LOGO_MARK } from "./logo-mark.js";
+    import { LOGO_APP_ICON } from "./logo-app-icon.js";
+    import { LOGO_FAVICON } from "./logo-favicon.js";
+
+    const set = (id, src) => {
+      const el = document.getElementById(id);
+      if (el && src) el.src = src;
+    };
+
+    set("logo-mark", LOGO_MARK);
+    set("logo-horiz", LOGO_HORIZONTAL);
+    set("logo-hero", LOGO_CLASSIC);
+    set("logo-atlas", LOGO_APP_ICON);
+    set("logo-gen", LOGO_ILLUSTRATION);
+
+    const fav = document.getElementById("favicon-link");
+    if (fav) fav.href = LOGO_FAVICON || LOGO_MARK;
+    const apple = document.getElementById("apple-touch-link");
+    if (apple) apple.href = LOGO_APP_ICON;
   </script>
   <script type="module" src="app.js"></script>
 </body>
