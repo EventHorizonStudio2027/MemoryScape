@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
   <title>MemoryScape</title>
   <meta name="description" content="Describe a memory. Explore the 3D zone it becomes. Walk between the places that shaped you." />
-  <meta name="theme-color" content="#0c121c" />
+  <meta name="theme-color" content="#070b12" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Outfit:wght@380;460;560;640&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@450;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,39 +19,49 @@
       <div class="brand">
         <img class="brand-logo" src="logo.svg" alt="MemoryScape" width="160" height="48" />
       </div>
-      <div class="row">
+      <div class="hud-actions">
         <span class="chip" id="zone-chip">Atlas</span>
         <button class="btn ghost sm" type="button" id="btn-atlas">Memories</button>
-        <button class="btn sm" type="button" id="btn-new">New memory</button>
+        <button class="btn sm" type="button" id="btn-new">New</button>
       </div>
     </div>
 
     <div class="screen" id="screen-home">
-      <div class="card">
+      <div class="sheet">
+        <div class="sheet-handle" aria-hidden="true"></div>
         <img class="hero-logo" src="logo.svg" alt="MemoryScape" />
         <h1 class="sr-only">Build a memoryscape</h1>
-        <p class="tagline">Build a memoryscape</p>
-        <p>Describe a memory or experience. The system designs an explorabile 3D zone from it. New zones link to the ones you already made — a continuous place made of your past.</p>
-        <label for="mem-title">Name this place</label>
-        <input id="mem-title" placeholder="e.g. Grandma's kitchen, 2009" maxlength="80" />
-        <label for="mem-body">What happened / how it felt</label>
-        <textarea id="mem-body" placeholder="The yellow light, the linoleum, the radio on low. Rain against the window. Someone laughing in the next room..."></textarea>
-        <label for="mem-link">Connect to an existing memory (optional)</label>
-        <select id="mem-link"><option value="">— none yet —</option></select>
-        <div class="row">
-          <button class="btn" type="button" id="btn-generate">Design 3D zone</button>
-          <button class="btn ghost" type="button" id="btn-enter-last" style="display:none">Enter last zone</button>
+        <p class="tagline">Your memories, walkable</p>
+        <p class="lede">Describe a place from your life. We shape a 3D zone you can explore — then link it to the rest of your past.</p>
+
+        <div class="field">
+          <label for="mem-title">Name this place</label>
+          <input id="mem-title" placeholder="Grandma’s kitchen, 2009" maxlength="80" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="mem-body">What happened / how it felt</label>
+          <textarea id="mem-body" placeholder="Yellow light, linoleum, radio low. Rain on the window. Someone laughing in the next room…"></textarea>
+        </div>
+        <div class="field">
+          <label for="mem-link">Connect to an existing memory</label>
+          <select id="mem-link"><option value="">None yet</option></select>
+        </div>
+
+        <div class="actions">
+          <button class="btn block" type="button" id="btn-generate">Design 3D zone</button>
+          <button class="btn ghost block" type="button" id="btn-enter-last" style="display:none">Enter last zone</button>
         </div>
       </div>
     </div>
 
     <div class="screen hidden" id="screen-atlas">
-      <div class="card">
-        <h1>Your zones</h1>
-        <p>Each one is a walkable place. Enter any of them, or walk through portals inside the world.</p>
+      <div class="sheet">
+        <div class="sheet-handle" aria-hidden="true"></div>
+        <h2 class="section-title">Your zones</h2>
+        <p class="section-sub">Each one is a walkable place. Open any zone, or step through portals inside the world.</p>
         <div class="memory-list" id="atlas-list"></div>
-        <div class="row">
-          <button class="btn" type="button" id="btn-atlas-new">Describe another memory</button>
+        <div class="actions row">
+          <button class="btn" type="button" id="btn-atlas-new">New memory</button>
           <button class="btn ghost" type="button" id="btn-atlas-close">Back</button>
         </div>
       </div>
@@ -62,8 +74,11 @@
       <div class="meta" id="side-meta"></div>
       <div class="links" id="side-links"></div>
     </div>
-    <div id="gen-status"><div class="pulse">Designing zone</div><div id="gen-text">Reading the memory…</div></div>
-    <div class="hint" id="hint">Click to look · WASD move · E use portal · Esc release mouse</div>
+    <div id="gen-status">
+      <div class="pulse">Designing zone</div>
+      <div id="gen-text">Reading the memory…</div>
+    </div>
+    <div class="hint" id="hint">Click to look · WASD move · E portal · Esc unlock</div>
   </div>
 
   <script type="importmap">
