@@ -90,11 +90,13 @@
   }
   </script>
   <script type="module">
-    import { LOGO_FULL, LOGO_MARK } from "./logo-assets.js";
+    import { LOGO_FULL_A } from "./logo-full-a.js";
+    import { LOGO_FULL_B } from "./logo-full-b.js";
+    import { LOGO_MARK } from "./logo-mark.js";
     const mark = document.getElementById("logo-mark");
     const hero = document.getElementById("logo-hero");
     if (mark) mark.src = LOGO_MARK;
-    if (hero) hero.src = LOGO_FULL;
+    if (hero) hero.src = LOGO_FULL_A + LOGO_FULL_B;
   </script>
   <script type="module" src="app.js"></script>
 </body>
